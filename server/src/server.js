@@ -33,12 +33,12 @@ app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: true }));
 
 // ================= ROUTES =================
-app.use("/api/users", require("./server/routes/userRoutes"));
-app.use("/api/admin", require("./server/routes/adminRoutes"));
+app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/admin", require("./routes/adminRoutes"));
 
 // ✅ ADD THIS LINE FOR RAZORPAY PAYMENT
 //const paymentRoutes = require("./routes/paymentRoutes");
-app.use("/api/payment", require("./server/routes/paymentRoutes"));
+app.use("/api/payment", require("./routes/paymentRoutes"));
 
 // ================= ROOT CHECK =================
 app.get("/", (req, res) => {
@@ -143,4 +143,5 @@ mongoose
     });
 
   });
+
 
