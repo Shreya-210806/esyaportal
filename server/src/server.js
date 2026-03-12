@@ -1,7 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-const paymentRoutes = require("./routes/paymentRoutes");
 require("dotenv").config();
 
 const http = require("http");
@@ -38,7 +37,8 @@ app.use("/api/users", require("./routes/userRoutes"));
 app.use("/api/admin", require("./routes/adminRoutes"));
 
 // ✅ ADD THIS LINE FOR RAZORPAY PAYMENT
-app.use("/api/payment", paymentRoutes);
+//const paymentRoutes = require("./routes/paymentRoutes");
+app.use("/api/payment", require("./routes/paymentRoutes"));
 
 // ================= ROOT CHECK =================
 app.get("/", (req, res) => {
@@ -141,4 +141,5 @@ mongoose
     server.listen(PORT, () => {
       console.log(`Server running on port ${PORT} (without DB)`);
     });
+
   });
