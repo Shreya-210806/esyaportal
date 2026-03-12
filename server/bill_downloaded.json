@@ -1,0 +1,15 @@
+{
+  "billNumber": "BILL-CN-20002-January",
+  "amount": 1553,
+  "dueDate": "2026-02-08T19:15:57.675Z",
+  "status": "Paid",
+  "consumerName": "New Valid User",
+  "consumerNumber": "CN-20002",
+  "email": "test.user2@gmail.com",
+  "phone": "9876543221",
+  "meterNumber": "MTR605723",
+  "address": "Thane, Maharashtra",
+  "issuedDate": "2026-01-09T19:15:57.675Z",
+  "paidDate": "2026-03-10T19:17:10.187Z",
+  "paidAmount": 1553
+}
