@@ -1,3 +1,4 @@
+import bodyParser from "body-parser";
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
@@ -25,8 +26,21 @@ io.on("connection", (socket) => {
   });
 });
 
+const allowedOrigins = [
+  "https://your-frontend.onrender.com",
+  // add dev origin if you test locally:
+  "http://localhost:5173",
+  "http://localhost:3000"
+];
+
+
 // ================= CORS =================
-app.use(cors());
+app.use(cors({
+  origin: allowedOrigins,
+  credentials: true,
+  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));
 
 // ================= BODY LIMIT FIX =================
 // Increase payload size so PDF/JPG can be uploaded
@@ -117,7 +131,7 @@ app.get("/api/seed-dummy-consumers", async (req, res) => {
 
 // ================= MONGODB =================
 const PORT = process.env.PORT || 5001;
-const DEFAULT_DB_NAME = "portalpal";
+const DEFAULT_DB_NAME = "test";
 
 const MONGO_URI =
   process.env.MONGO_URI || `mongodb://localhost:27017/${DEFAULT_DB_NAME}`;
@@ -141,4 +155,5 @@ mongoose
     server.listen(PORT, () => {
       console.log(`Server running on port ${PORT} (without DB)`);
     });
+
   });
