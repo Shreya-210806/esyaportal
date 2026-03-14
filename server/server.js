@@ -27,7 +27,7 @@ io.on("connection", (socket) => {
 });
 
 const allowedOrigins = [
-  "https://your-frontend.onrender.com",
+  "https://esyaportal.onrender.com",
   // add dev origin if you test locally:
   "http://localhost:5173",
   "http://localhost:3000"
@@ -157,3 +157,4 @@ mongoose
     });
 
   });
+
